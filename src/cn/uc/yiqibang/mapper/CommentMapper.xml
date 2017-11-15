@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.uc.yiqibang.mapper.CommentMapper">
+
+	<resultMap id="CommentMap" type="Comment">
+		<id column="id" property="id"/>
+		<result column="t_n_id" property="t_n_id"/>
+		<result column="t_u_id" property="t_u_id"/>
+		<result column="c_content" property="c_content"/>
+		<result column="c_createtime" property="c_createtime"/>
+		<result column="c_thumbscount" property="c_thumbscount"/>
+	</resultMap>
+	
+	<select id="selectAll" resultMap="CommentMap">
+		select * from t_comment
+	</select>
+	
+	<select id="selectById" resultMap="CommentMap">
+		select * from t_comment where id=#{id}
+	</select>
+	<insert id="insert" parameterType="Comment">
+		insert into t_comment(t_n_id,t_u_id,c_content,c_createtime,c_thumbscount) values (#{t_n_id},#{t_u_id},#{c_content},#{c_createtime},#{c_thumbscount})
+	</insert>
+	<delete id="delete" parameterType="int">
+		delete from t_comment where id=#{id}
+	</delete>
+</mapper>

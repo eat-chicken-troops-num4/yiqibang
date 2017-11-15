@@ -1,0 +1,14 @@
+package cn.uc.yiqibang.admin.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class AdminTest {
+
+	@Test
+	public void insertAdminTest() {
+		fail("Not yet implemented");
+	}
+
+}

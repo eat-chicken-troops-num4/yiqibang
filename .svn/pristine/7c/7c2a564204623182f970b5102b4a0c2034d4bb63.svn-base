@@ -1,0 +1,13 @@
+package cn.uc.yiqibang.utils;
+
+/**
+ * 字符串的参数拼接
+ * @author ucai
+ *
+ */
+public class Constants {
+
+	public static final String root="cn.uc.yiqibang.mapper";
+	public static final String commentMapper=root+"CommentMapper";
+	public static final String selectAll=commentMapper+"selectAll";
+}

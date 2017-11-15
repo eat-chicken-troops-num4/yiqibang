@@ -1,0 +1,21 @@
+package cn.uc.yiqibang.dao;
+
+import java.util.List;
+
+import cn.uc.yiqibang.bean.Comment;
+import cn.uc.yiqibang.utils.Result;
+
+public interface CommentDao {
+	// <!-- 获取所有评论 -->
+	Result getAllComment();
+	//<!-- 根据新闻id获取评论列表-->
+	Result getCommentById(int id);
+	//<!-- 修改评论 -->
+	//<!-- 删除评论 -->
+	//<!-- 插入一条评论-->
+	Result insertComment(Comment comment);
+	
+	Result deleteComment(int id);
+	
+	
+}

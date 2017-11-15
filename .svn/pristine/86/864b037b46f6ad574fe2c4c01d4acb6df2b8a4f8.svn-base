@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.uc.yiqibang.mapper.AdminMapper">
+
+	  <select id="queryById" parameterType="int" resultMap="AdminMap">
+	  	select * from t_admin where id=#{id}
+	  </select>
+	  
+	  <select id="queryAll" resultMap="AdminMap">
+	    select * from t_admin
+	  </select>
+	  
+	  <resultMap type="Admin" id="AdminMap">
+      <id property="id" column="id"/>
+      <result property="t_u_Id" column="t_u-id"/>
+      <result property="u_State" column="u_state"/>
+      <result property="u_Level" column="u_level"/>
+      </resultMap> 
+	  
+	  <insert id="insert" parameterType="Admin">
+	  insert into t_admin(t_u-id,u_state,u_level) values(#{t_u_Id},#{u_State},#{u_Level})
+	  </insert>
+	  
+	  <delete id="delete" parameterType="int">
+      delete from t_admin where id=#{id}
+     </delete>
+	 
+	 <update id="update" parameterType="Admin">
+	  update t_admin set t_u-id=#{t_u_Id},u_state=#{u_State},u_level=#{u_Level} where id=#{id}
+	 </update>
+	  
+ 
+</mapper>

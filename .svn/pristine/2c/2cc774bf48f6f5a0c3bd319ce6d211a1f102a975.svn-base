@@ -1,0 +1,19 @@
+package cn.uc.yiqibang.test;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import cn.uc.yiqibang.bean.Admin;
+import cn.uc.yiqibang.dao.IAdminDao;
+import cn.uc.yiqibang.dao.impl.AdminDaoImpl;
+
+public class AdminTest {
+	
+	IAdminDao adminDao=new AdminDaoImpl();
+
+	@Test
+	public void insertAdminTest() {
+		
+	}
+
+}

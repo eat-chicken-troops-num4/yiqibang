@@ -1,0 +1,20 @@
+package cn.uc.test;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import cn.uc.yiqibang.dao.NewsDao;
+import cn.uc.yiqibang.dao.impl.NewDaoImpl;
+import cn.uc.yiqibang.utils.Result;
+
+public class NewsTest {
+	
+	NewsDao newsDao = new NewDaoImpl();
+	@Test
+	public void selectAll() {
+		Result result = newsDao.getAllNews();
+		System.out.println(result.getRetData());
+		Assert.assertNotNull(result.getRetData());
+	}
+
+}

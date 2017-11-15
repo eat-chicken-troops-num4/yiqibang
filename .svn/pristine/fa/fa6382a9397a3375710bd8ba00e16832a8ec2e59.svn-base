@@ -1,0 +1,13 @@
+package cn.uc.yiqibang.servlet;
+
+
+import javax.servlet.annotation.WebServlet;
+
+/**
+ * Servlet implementation class NewsServlet
+ */
+@WebServlet("/NewsServlet")
+public class NewsServlet extends BaseServlet {
+
+
+}

@@ -1,0 +1,35 @@
+package cn.uc.yiqibang.dao.impl;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import cn.uc.yiqibang.bean.News;
+import cn.uc.yiqibang.dao.NewsDao;
+import cn.uc.yiqibang.utils.Constants;
+import cn.uc.yiqibang.utils.MyBatisUtils;
+import cn.uc.yiqibang.utils.Result;
+
+public class NewDaoImpl implements NewsDao{
+
+	/* (non-Javadoc)
+	 * @see cn.uc.yiqibang.dao.NewsDao#getAllNews()
+	 */
+	@Override
+	public Result getAllNews() {
+		Result result = new Result();
+		SqlSession session = MyBatisUtils.openSession();
+		List<News> newsList= session.selectList(Constants.newsMapper_selectAll);
+		session.close();
+		if(newsList!=null){
+			result.setRetCode(Constants.RETCODE_SUCCESS);
+			result.setRetMsg(true);
+			result.setRetData(newsList);
+		}else{
+			result.setRetCode(Constants.RETCODE_FAILED);
+			result.setRetMsg(false);
+		}
+		return result;
+	}
+
+}

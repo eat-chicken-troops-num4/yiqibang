@@ -1,0 +1,75 @@
+package cn.uc.yiqibang.dao.impl;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import cn.uc.yiqibang.beans.User;
+import cn.uc.yiqibang.dao.IUserDao;
+import cn.uc.yiqibang.utils.MyBatisUtils;
+import cn.uc.yiqibang.utils.Result;
+
+
+
+public class UserDaoImpl implements IUserDao{
+
+
+//	public static void main(String[] args) {
+//		List<Users> userList=new UserDaoImpl().getAllUsers();
+//		for (Users users : userList) {
+//			System.out.println(users);
+//		}
+//		
+//		Iterator<Users> it=userList.iterator();
+//		while(it.hasNext()){
+//			System.out.println(it.next());
+//		}
+
+	@Override
+	public Result insertUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result deleteUser(int userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result updateUser(int userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result queryAllUser() {
+		SqlSession session=null;
+		String config="config.xml";
+		try {
+			session=MyBatisUtils.openSession();
+			Result userList=(Result) session.selectList("cn.uc.yiqibang.xml.userMapper.selectAll");
+			return userList;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+			
+		}
+		return null;
+	}
+
+	@Override
+	public Result queryOne(int userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

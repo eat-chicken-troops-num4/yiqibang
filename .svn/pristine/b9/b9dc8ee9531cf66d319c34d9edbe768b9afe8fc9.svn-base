@@ -1,0 +1,60 @@
+package cn.uc.yiqibang.test;
+
+import org.junit.Assert;
+import org.junit.Ignore;
+import org.junit.Test;
+
+import cn.uc.yiqibang.bean.Admin;
+import cn.uc.yiqibang.dao.IAdminDao;
+import cn.uc.yiqibang.dao.impl.AdminDaoImpl;
+import cn.uc.yiqibang.utils.Result;
+
+public class AdminTest {
+	
+	IAdminDao adminDao=new AdminDaoImpl();
+	@Ignore
+	@Test
+	public void insertAdminTest() {
+		Admin admin=new Admin();
+		admin.setT_u_Id(1);
+		admin.setU_Level("1");
+		admin.setU_State(true);
+		Result result=adminDao.insertAdmin(admin);
+		System.out.println(result.getRetData());
+		Assert.assertNotNull(result.getRetData());
+	}
+	@Ignore
+	@Test
+	public void deleteTest(){
+		Result result=adminDao.deleteAdmin(2); 
+		System.out.println(result.getRetData());
+		Assert.assertNotNull(result.getRetData());
+	}
+	@Ignore
+	@Test
+	public void updateAdminTest() {
+		Admin admin=new Admin();
+		admin.setId(3);
+		admin.setT_u_Id(1);
+		admin.setU_Level("3");
+		admin.setU_State(false);
+		Result result=adminDao.updateAdmin(admin);
+		System.out.println(result.getRetData());
+		Assert.assertNotNull(result.getRetData());
+	}
+	@Ignore
+	@Test
+	public void queryAllTest(){
+		Result result=adminDao.queryAllAdmin();
+		System.out.println(result.getRetData());
+		Assert.assertNotNull(result.getRetData());
+	}
+	@Ignore
+	@Test
+	public void queryByIdTest(){
+		Result result=adminDao.queryById(2);
+		System.out.println(result.getRetData());
+		Assert.assertNotNull(result.getRetData());
+	}
+	
+}

@@ -1,0 +1,15 @@
+package cn.uc.yiqibang.dao;
+
+import cn.uc.yiqibang.utils.Result;
+
+public interface TypeDao {
+	/*
+	 * 查询所有新闻类型
+	 */
+	Result getAllType();
+	/*
+	 * 按id查询
+	 */
+	Result getTypeById(int id);
+	
+}

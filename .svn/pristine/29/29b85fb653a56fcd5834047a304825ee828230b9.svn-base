@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.uc.yiqibang.mapper.UserMapper">
+
+  <select id="queryById" parameterType="int" resultMap="UserMap">
+  	select * from t_user where id=#{id}
+  </select>
+  
+  <select id="queryAll" resultType="User">
+    select * from t_user
+  </select>
+  
+   <resultMap type="User" id="UserMap">
+      <id property="id" column="id"/>
+      <result property="userName" column="u_username"/>
+      <result property="nickName" column="u_nickname"/>
+      <result property="password" column="u_password"/>
+      <result property="sex" column="u_sex"/>
+      <result property="bindtel" column="u_bindtel"/>
+      <result property="email" column="u_email"/>
+      <result property="headimg" column="u_headimg"/>
+      <result property="state" column="u_state"/>
+      <result property="createtime" column="u_createtime"/>
+      <result property="birthday" column="u_birthday"/>
+      <result property="remark" column="u_remark"/>
+      <result property="update" column="u_update"/>
+      <result property="provinceId" column="u_provinceid"/>
+      <result property="cityId" column="u_cityid"/>
+      <result property="areaId" column="u_areaid"/>
+    </resultMap>
+    
+  <insert id="insert" parameterType="User">
+  insert into t_user(u_username,u_nickname,u_password,u_sex,u_bindtel,u_email,
+  u_headimg,u_state,u_createtime,u_birthday,u_remark,u_update,u_provinceid,
+  u_cityid,u_areaid) values(#{userName},#{nickName},#{password},#{sex},#{bindtel},
+  #{email},#{headimg},#{state},#{createtime},#{birthday},#{remark},#{update},#{provinceId},
+  #{cityId},#{areaId})
+  </insert>
+  
+  <delete id="delete" parameterType="int">
+  delete from t_user where id=#{id}
+  </delete>
+  
+  <update id="update" parameterType="User">
+  update t_user set u_username=#{userName},u_nickname=#{nickName},
+  u_password=#{password},u_sex=#{sex},u_bindtel=#{bindtel},u_email=#{email},
+  u_headimg=#{headimg},,u_state=#{state},u_createtime=#{createtime},
+  u_birthday=#{birthday},u_remark=#{remark},u_update=#{update},
+  u_provinceid=#{provinceId},u_cityid=#{cityId},u_areaid=#{areaId}
+  where id=#{id}
+  </update>
+  
+  
+</mapper>

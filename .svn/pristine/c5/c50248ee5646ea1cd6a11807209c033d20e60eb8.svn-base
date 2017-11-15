@@ -1,0 +1,10 @@
+package cn.uc.yiqibang.dao;
+
+import cn.uc.yiqibang.utils.Result;
+
+public interface NewsDao {
+	
+	Result getAllNews();
+	
+	Result getNewsById(int id);
+}
